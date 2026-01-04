@@ -1,0 +1,518 @@
+/* ===========================
+   Skip Link for Accessibility
+   =========================== */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #b30000;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 0 0 8px 8px;
+  z-index: 1000;
+  font-weight: 600;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #ff4d4d;
+  outline-offset: 2px;
+}
+
+/* ===========================
+   Main Container
+   =========================== */
+.st-container {
+  background: #000;
+  min-height: 100vh;
+}
+
+/* ===========================
+   Hero Section
+   =========================== */
+.hero {
+  height: 100vh;
+  min-height: 600px;
+  background-image: url('/images/will1.webp');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 60px 80px;
+  box-sizing: border-box;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  z-index: 10;
+  pointer-events: none;
+  position: relative;
+}
+
+.hero-content>* {
+  pointer-events: auto;
+}
+
+/* ===========================
+   Fire Reveal Effect
+   =========================== */
+.fire-reveal {
+  background-position: 40% 7% !important;
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/v1.png');
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.55s ease;
+  --tx: calc(var(--x) - 24px);
+  --ty: calc(var(--y) - 18px);
+
+  mask-image:
+    radial-gradient(circle 400px at var(--x) var(--y),
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.6) 40%,
+      transparent 70%),
+    radial-gradient(circle 450px at calc(var(--x) + 50px) calc(var(--y) - 40px),
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.4) 40%,
+      transparent 70%),
+    radial-gradient(circle 200px at calc(var(--x) - 50px) calc(var(--y) + 30px),
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.3) 40%,
+      transparent 70%);
+  -webkit-mask-image:
+    radial-gradient(circle 400px at var(--x) var(--y),
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.6) 40%,
+      transparent 70%),
+    radial-gradient(circle 450px at calc(var(--x) + 50px) calc(var(--y) - 40px),
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.4) 40%,
+      transparent 70%),
+    radial-gradient(circle 400px at calc(var(--x) - 50px) calc(var(--y) + 30px),
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.3) 40%,
+      transparent 70%);
+  z-index: 1;
+}
+
+.fire-reveal.active {
+  opacity: 1;
+}
+
+/* ===========================
+   Left Content (Main Title)
+   =========================== */
+.left {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.left h1 {
+  font-size: clamp(40px, 6vw, 80px);
+  color: #ff3333;
+  text-shadow:
+    0 0 8px rgba(179, 0, 0, 0.6),
+    0 0 18px rgba(179, 0, 0, 0.4);
+  line-height: 1;
+  margin: 0;
+  animation: title-flicker 4s ease-in-out infinite;
+}
+
+/* ===========================
+   Title Flicker Animation
+   =========================== */
+@keyframes title-flicker {
+
+  0%,
+  100% {
+    text-shadow:
+      0 0 8px rgba(179, 0, 0, 0.6),
+      0 0 18px rgba(179, 0, 0, 0.4);
+    opacity: 1;
+  }
+
+  50% {
+    text-shadow:
+      0 0 12px rgba(255, 50, 50, 0.8),
+      0 0 25px rgba(179, 0, 0, 0.6),
+      0 0 40px rgba(179, 0, 0, 0.3);
+    opacity: 1;
+  }
+
+  52% {
+    opacity: 0.95;
+  }
+
+  54% {
+    opacity: 1;
+  }
+
+  85% {
+    text-shadow:
+      0 0 8px rgba(179, 0, 0, 0.6),
+      0 0 18px rgba(179, 0, 0, 0.4);
+    opacity: 1;
+  }
+
+  86% {
+    opacity: 0.92;
+  }
+
+  87% {
+    opacity: 1;
+  }
+}
+
+.left p {
+  font-size: clamp(14px, 1.5vw, 20px);
+  max-width: 450px;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* ===========================
+   CTA Button - Accessibility Enhanced
+   =========================== */
+.st-btn {
+  font-size: 19px;
+  padding: 15px 30px;
+  min-height: 48px;
+  min-width: 48px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #f0f0f0;
+  width: fit-content;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(179, 0, 0, 0.5);
+  font-weight: 600;
+}
+
+.st-btn:hover {
+  background-color: #b30000;
+  box-shadow: 0 0 20px rgba(179, 0, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+.st-btn:focus-visible {
+  outline: 3px solid #ff4d4d;
+  outline-offset: 4px;
+}
+
+.st-btn:active {
+  transform: translateY(0);
+}
+
+/* ===========================
+   Right Content (Mind Flayer)
+   =========================== */
+.right {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: right;
+  align-items: flex-end;
+}
+
+.right h1 {
+  font-size: clamp(30px, 5vw, 60px);
+  color: #ff3333;
+  text-shadow:
+    0 0 8px rgba(179, 0, 0, 0.6),
+    0 0 18px rgba(179, 0, 0, 0.4);
+  margin: 0;
+}
+
+.right p {
+  font-size: clamp(14px, 1.5vw, 22px);
+  max-width: 450px;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* ===========================
+   Extra Content Sections
+   =========================== */
+.st-extra-content {
+  padding: 100px 50px;
+  background: #000;
+  color: white;
+  min-height: 100vh;
+  z-index: 5;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.st-extra-content h2 {
+  font-family: 'Libre Baskerville', serif;
+  color: #ff3333;
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px rgba(179, 0, 0, 0.7);
+  text-align: center;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #aaa;
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+}
+
+/* ===========================
+   Character Grid
+   =========================== */
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Old char-card styles (kept for backwards compatibility) */
+.char-card {
+  padding: 40px;
+  background: rgba(40, 40, 40, 0.6);
+  border: 2px solid rgba(179, 0, 0, 0.2);
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.5rem;
+  cursor: default;
+}
+
+.char-card:hover {
+  background: rgba(179, 0, 0, 0.15);
+  border-color: #b30000;
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ===========================
+   Links
+   =========================== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 3px solid #ff4d4d;
+  outline-offset: 2px;
+}
+
+/* ===========================
+   Media Query: Large Tablet (max-width: 1024px)
+   =========================== */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 80px 30px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 100%;
+    gap: 40px;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .left p,
+  .right p {
+    margin: 0 auto;
+  }
+
+  .char-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .st-extra-content {
+    padding: 80px 30px;
+  }
+}
+
+/* ===========================
+   Media Query: Medium Tablet (max-width: 900px)
+   =========================== */
+@media (max-width: 900px) {
+  .char-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .left h1,
+  .right h1 {
+    font-size: clamp(36px, 8vw, 60px);
+  }
+
+  .st-extra-content h2 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+}
+
+
+/* ===========================
+   Media Query: Tablet Small (max-width: 768px)
+   =========================== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px;
+    min-height: 100vh;
+    align-items: center;
+  }
+
+  .left h1,
+  .right h1 {
+    font-size: clamp(32px, 10vw, 50px);
+  }
+
+  .left p,
+  .right p {
+    font-size: clamp(14px, 3vw, 16px);
+  }
+
+  .st-btn {
+    font-size: 16px;
+    padding: 14px 28px;
+  }
+
+  .char-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .st-extra-content {
+    padding: 60px 20px;
+    min-height: auto;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+}
+
+/* ===========================
+   Media Query: Mobile (max-width: 480px)
+   =========================== */
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .hero-content {
+    gap: 30px;
+  }
+
+  .left h1,
+  .right h1 {
+    font-size: clamp(28px, 12vw, 40px);
+  }
+
+  .left p,
+  .right p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .st-btn {
+    font-size: 15px;
+    padding: 12px 24px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .char-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .st-extra-content {
+    padding: 50px 15px;
+  }
+
+  .st-extra-content h2 {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+  }
+
+  /* Hide right content on very small screens for cleaner look */
+  .right {
+    display: none;
+  }
+}
+
+/* ===========================
+   Reduced Motion Preference
+   =========================== */
+@media (prefers-reduced-motion: reduce) {
+  .fire-reveal {
+    transition: none;
+  }
+
+  .st-btn {
+    transition: background-color 0.1s;
+    transform: none !important;
+  }
+
+  .char-card {
+    transition: background-color 0.1s;
+    transform: none !important;
+  }
+}
+
+/* ===========================
+   High Contrast Mode Support
+   =========================== */
+@media (prefers-contrast: high) {
+
+  .left h1,
+  .right h1 {
+    color: #ff0000;
+    text-shadow: none;
+  }
+
+  .st-btn {
+    border: 3px solid #fff;
+  }
+
+  .st-extra-content h2 {
+    text-shadow: none;
+  }
+}

@@ -1,0 +1,56 @@
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.loading-content {
+    text-align: center;
+    z-index: 10;
+}
+
+.loading-logo {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(2rem, 10vw, 6rem);
+    color: #ff3333;
+    letter-spacing: 0.2em;
+    text-shadow:
+        0 0 10px rgba(179, 0, 0, 0.8),
+        0 0 30px rgba(179, 0, 0, 0.4);
+    margin-bottom: 40px;
+}
+
+.loading-bar-container {
+    width: 300px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 auto 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-bar {
+    height: 100%;
+    background: #b30000;
+    box-shadow: 0 0 10px #ff3333;
+}
+
+.loading-status {
+    color: #888;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.8) 100%);
+    pointer-events: none;
+}

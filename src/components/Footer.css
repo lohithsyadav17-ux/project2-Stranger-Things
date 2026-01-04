@@ -1,0 +1,111 @@
+.st-footer {
+    background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(15, 5, 5, 0.98) 100%);
+    padding: 60px 30px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(179, 0, 0, 0.3);
+    position: relative;
+}
+
+.st-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #b30000, transparent);
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: #ff3333;
+    text-shadow: 0 0 15px rgba(179, 0, 0, 0.6);
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+}
+
+.footer-tagline {
+    color: #888;
+    font-style: italic;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.footer-links a {
+    color: #ff6666;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ff3333;
+    text-shadow: 0 0 10px rgba(179, 0, 0, 0.6);
+}
+
+.footer-links a:focus-visible {
+    outline: 2px solid #ff4d4d;
+    outline-offset: 3px;
+}
+
+.footer-links .divider {
+    color: rgba(179, 0, 0, 0.5);
+}
+
+.footer-credits {
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.footer-copyright {
+    color: #555;
+    font-size: 0.8rem;
+}
+
+.footer-copyright a {
+    color: #b30000;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-copyright a:hover {
+    color: #ff4d4d;
+}
+
+.footer-copyright a:focus-visible {
+    outline: 2px solid #ff4d4d;
+    outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .st-footer {
+        padding: 40px 20px 30px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-links .divider {
+        display: none;
+    }
+}
