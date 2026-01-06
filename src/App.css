@@ -1,4 +1,53 @@
-*{
-  padding: 0;
+body {
   margin: 0;
+  padding: 0;
+  background: #000;
+  overflow-x: hidden;
+}
+
+.game-launch-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  background: rgba(184, 0, 0, 0.8);
+  color: white;
+  border: 2px solid #ff0000;
+  padding: 0.8rem 1.5rem;
+  font-family: 'Space Mono', monospace;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.game-launch-btn:hover {
+  background: #ff0000;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+}
+
+.portal-icon {
+  font-size: 1.5rem;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+  .game-launch-btn {
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.8rem;
+    padding: 0.6rem 1rem;
+  }
 }

@@ -4,6 +4,10 @@ import GlobalErrorBoundary from './components/GlobalErrorBoundary'
 import LoadingScreen from './components/LoadingScreen'
 import { HelmetProvider } from 'react-helmet-async'
 import { AnimatePresence } from 'framer-motion'
+import UpsideDownGame from './components/Game/UpsideDownGame'
+import AudioControl from './components/AudioControl'
+import CustomCursor from './components/CustomCursor'
+import Magnetic from './components/Magnetic'
 import './App.css'
 
 /**
@@ -14,6 +18,7 @@ import './App.css'
  */
 function App() {
     const [isLoading, setIsLoading] = useState(true)
+    const [isLoadingGame, setIsLoadingGame] = useState(false)
 
     return (
         <HelmetProvider>
@@ -23,6 +28,19 @@ function App() {
                 ) : (
                     <GlobalErrorBoundary key="main-content">
                         <Hero />
+                        <Magnetic strength={0.4}>
+                            <button
+                                className="game-launch-btn"
+                                onClick={() => setIsLoadingGame(true)}
+                                aria-label="Enter the Upside Down Mini Game"
+                            >
+                                <span className="portal-icon">🌀</span>
+                                SURVIVE THE UPSIDE DOWN
+                            </button>
+                        </Magnetic>
+                        {isLoadingGame && <UpsideDownGame onClose={() => setIsLoadingGame(false)} />}
+                        <AudioControl />
+                        <CustomCursor />
                     </GlobalErrorBoundary>
                 )}
             </AnimatePresence>

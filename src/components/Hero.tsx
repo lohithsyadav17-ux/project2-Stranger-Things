@@ -8,6 +8,7 @@ import ParticleBackground from './ParticleBackground'
 import Footer from './Footer'
 import GlobalErrorBoundary from './GlobalErrorBoundary'
 import { characters } from '../data/characters'
+import Magnetic from './Magnetic'
 import './Hero.css'
 
 /**
@@ -150,16 +151,18 @@ const Hero: React.FC = () => {
                         <motion.p variants={item}>
                             In a small town where everyone knows everyone, a peculiar incident starts a chain of events that leads to the disappearance of a child, which begins to tear at the fabric of an otherwise peaceful community.
                         </motion.p>
-                        <motion.a
-                            href="https://www.netflix.com/title/80057281"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="st-btn"
-                            variants={item}
-                            aria-label="Enter the Upside Down on Netflix"
-                        >
-                            WATCH ON NETFLIX
-                        </motion.a>
+                        <Magnetic strength={0.3}>
+                            <motion.a
+                                href="https://www.netflix.com/title/80057281"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="st-btn"
+                                variants={item}
+                                aria-label="Enter the Upside Down on Netflix"
+                            >
+                                WATCH ON NETFLIX
+                            </motion.a>
+                        </Magnetic>
                     </div>
 
                     <div className="right">
